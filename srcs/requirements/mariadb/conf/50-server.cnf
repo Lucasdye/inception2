@@ -1,0 +1,65 @@
+#
+# These groups are read by MariaDB server.
+# Use it for options that only the server (but not clients) should see
+
+# this is read by the standalone daemon and embedded servers
+[server]
+
+# this is only for the mysqld standalone daemon
+[mysqld]
+
+#
+# * Basic Settings
+#
+
+user                    = mysql
+
+# specifies the path to the PID file
+pid-file                = /run/mysqld/mysqld.pid
+
+# specifies the path to the socket file that the server will use for local connections
+socket                  = /run/mysqld/mysqld.sock
+
+port                    = 3306
+datadir                 = /var/lib/mysql
+tmpdir                  = /tmp
+
+# language-specific error messages
+lc-messages-dir         = /usr/share/mysql
+lc-messages             = en_US
+
+# prevent the use of external locking programs
+skip-external-locking   
+
+# specifies the address that the server will listen on for incoming connections
+bind_address            = 0.0.0.0
+
+# The following can be used as easy to replay backup logs or for replication.
+# note: if you are setting up a replication slave, see README.Debian about
+#       other settings you may need to change.
+#server-id              = 1
+#log_bin                = /var/log/mysql/mysql-bin.log
+expire_logs_days        = 10
+#max_binlog_size        = 100M
+
+#
+# * Character sets
+#
+
+# MySQL/MariaDB default is Latin1, but in Debian we rather default to the full
+# utf8 4-byte character set. See also client.cnf
+character-set-server  = utf8mb4
+collation-server      = utf8mb4_general_ci
+
+# this is only for embedded server
+[embedded]
+
+# This group is only read by MariaDB servers, not by MySQL.
+# If you use the same .cnf file for MySQL and MariaDB,
+# you can put MariaDB-only options here
+[mariadb]
+
+# This group is only read by MariaDB-10.5 servers.
+# If you use the same .cnf file for MariaDB of different versions,
+# use this group for options that older servers don't understand
+[mariadb-10.5]

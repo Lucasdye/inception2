@@ -1,0 +1,5 @@
+
+CREATE DATABASE wordpress;
+CREATE USER '$(userAdm)@$(ipAddr)' IDENTIFIED BY '$(passwordAdm)';
+GRANT ALL PRIVILEGES ON 'wordpress.*' TO '$(userAdm)'@'$(ipAddr)' IDENTIFIED BY '$(passwordAdm)';
+

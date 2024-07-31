@@ -1,2 +1,2 @@
 # inception2
-All fro Juju
+All for Juju
